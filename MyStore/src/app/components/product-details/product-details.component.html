@@ -1,0 +1,20 @@
+<div class="detail-container">
+    <img src="{{ data.images}}" alt="{{ data.name }} photo" />
+   <a routerLink="/">&lt; Back To Home</a>
+
+
+  <div class="item">    
+   
+   
+    
+<div> 
+    <div class="body">
+        <h4><b>{{data.title}}</b></h4>
+        <p>{{data.price}}</p>
+    </div>
+     -->
+        <input type="number" class="form-control" [(ngModel)]="amount">
+     
+        <app-product (addToCartClick)="onAddToCart($event)"></app-product>
+    </div>
+  </div> 
