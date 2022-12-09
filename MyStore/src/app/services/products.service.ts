@@ -7,10 +7,10 @@ export class ProductsService {
 
   constructor(private http:HttpClient) { }
   getAllProducts(){
-    return this.http.get(' https://api.escuelajs.co/api/v1/products')
+    return this.http.get('https://fakestoreapi.com/products/')
     
   }
   getProductById(id:any){
-    return this.http.get('https://api.escuelajs.co/api/v1/products/'+id)
+    return this.http.get('https://fakestoreapi.com/products/'+id)
   }
 }

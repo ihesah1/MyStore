@@ -1,5 +1,8 @@
 <div class="row ">
-    <div class="col-md-3 col-sm-10" *ngFor="let item of products" routerLink="/details/{{item.id}}">
-       <app-product [data]="item" (item)="addToCart($event)"></app-product>
+    <div class="col-md-3 col-sm-10" *ngFor="let item of products">
+         
+       <app-product [data]="item" (item)="addToCart($event)" ></app-product>
+       <!-- <button class="btn btn-primary " routerLink="/details/{{item.id}}">More Details</button> -->
+
     </div>
 </div> 

@@ -1,6 +1,8 @@
 import { Component ,Input,Output,OnInit, EventEmitter} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import swal from 'sweetalert';
 
+import { Product } from 'src/app/models/product';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -9,14 +11,24 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductComponent implements OnInit{
   
   @Input() data:any= {}
-  @Output() addToCartClick = new EventEmitter();
   @Output() item = new EventEmitter
   amount:number=0
-  constructor(){}
+  products:Product[]=[]
+  constructor(private route:Router){}
   ngOnInit(): void {
     
   }
-  addToCart(){
+  add(){
    this.item.emit({item:this.data, quantity:this.amount});
+   swal({
+    title: "Good job!",
+    text: "You Add the Product Succesfully",
+    icon: "success",
+  });
+
+  }
+  public showDetails(detailsProduct: Product) {
+    this.route.navigateByUrl(`/details/${detailsProduct.id}`)
+
   }
 }
