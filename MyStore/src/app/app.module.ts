@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './components/product/product.component';
 import { FormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     CartComponent,
     ProductComponent,
     ProductDetailsComponent,
+    ConfirmationComponent,
     
      
   ],

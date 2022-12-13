@@ -1,26 +1,37 @@
 import { isNgTemplate } from '@angular/compiler';
-import { Component,OnInit } from '@angular/core';
-
+import { Component,Input,OnInit, Output } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { cart } from 'src/app/models/cart';
+import { Product } from 'src/app/models/product';
+import { Userdata } from 'src/app/models/userData';
+import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit{
-   cartProduct : any[]=[]
+    
+   cartProduct : cart[]=[]
+
    total=0
 
-  constructor(){}
+  
+ 
+   order: Userdata = new Userdata;
+    
+  constructor(private router: Router,private orderService: OrderService){}
   ngOnInit(): void {
     this.getProductsCart()
-   
-  }//هذي الفنكشن المفروض تكون بالسيرفس
+  }
   getProductsCart(){
     if("cart" in localStorage){
-      this.cartProduct = JSON.parse(localStorage.getItem("cart")!);
-  } this.getTotalCart()
-console.log(this.cartProduct);
+      this.cartProduct= JSON.parse(localStorage.getItem("cart")!);
+    } this.getTotalCart()
+    console.log(this.cartProduct);
   } 
+  
   getTotalCart(){
     this.total=0
     for(let i in this.cartProduct){
@@ -40,6 +51,14 @@ console.log(this.cartProduct);
      this.getTotalCart()
      localStorage.setItem("cart",JSON.stringify(this.cartProduct))
 
+  }
+  
+
+
+  onSubmit(firstname: string, address: string,creditCard:string): void {
+	  this.order = {firstname: firstname, address: address,creditCard:creditCard,total:this.total };
+	  this.orderService.addOrder(this.order);
+	  this.router.navigate(['/confirmation']);
   }
 
 }
