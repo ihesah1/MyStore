@@ -13,8 +13,6 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ConfirmationComponent implements OnInit{
 
- 
-
   order: Userdata = new Userdata;
 
   constructor(private orderService:OrderService,private cartService:CartService) { }
@@ -25,7 +23,7 @@ export class ConfirmationComponent implements OnInit{
   onClick():void {
     this.orderService.clearOrder();
     this.cartService.clearCart();
-    alert('Order & Cart Cleared');
+    alert('Order And Cart Cleared');
     }
   }
 

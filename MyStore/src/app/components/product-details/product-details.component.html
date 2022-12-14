@@ -1,13 +1,9 @@
-
-
-  
-  <div class="item">    
+<div class="item">    
  
-    <img src="{{ data.image}}" width="40%" />
-         
-        <p>{{data.price}}</p>
-        <p>{{data.description}}</p>
-       <button routerLink="/">&lt; Back To Home</button>
-          </div> 
+       <img src="{{ data.image}}" width="40%" />  
+        <div class="box">
+        <p><b>Description :</b>{{data.description}}</p>
+        <p><b> Price :</b>{{data.price}}$ </p>
+       <button class="btn btn-primary" routerLink="/">&lt; Back To Products List</button>
+</div> </div>
  
- <!-- <app-product [data]="data" (add)="add()"></app-product> -->

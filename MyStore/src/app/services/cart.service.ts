@@ -9,6 +9,7 @@ export class CartService {
 
   cartProduct : cart[] =[]
 
+myStorage = window.localStorage
  getProductsCart(){
    if("cart" in localStorage){
      this.cartProduct = JSON.parse(localStorage.getItem("cart")!);
@@ -16,8 +17,10 @@ export class CartService {
 //  this.getTotalCart()
  console.log(this.cartProduct);
  } 
- clearCart():void{
-  this.cartProduct = [];
+ clearCart(): void{
+  this.myStorage.clear();
 }
 
 }
+////////////// ToDo :
+////////////////Clear cart + README file

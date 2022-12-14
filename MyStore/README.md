@@ -1,6 +1,51 @@
-# MyStore
+# MyStore 
+## Breif Description :
+##### My store application for shopping, on the home page a list of all the store’s products will appear. You can choose what you want and add it to the shopping cart. After adding it, it will appear in the shopping cart and you can specify the quantity of the product as you want, then to confirm the order, you must fill out your personal data form to confirm the order.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+## Single-page application with Angular 
+ - For Start The project :
+	Run `npm install` to install dependencies
+	Run `ng serve` to start application
+# Components
+- AllProducts component
+- Product Component
+- productDetails Component
+- Header Component
+- Navbar Component
+- Cart Component
+- Confirmation Component
+# Services 
+- Cart servic
+- Product service
+- Order Service
+
+# Models 
+- Cart Model
+- Product Model 
+- order Model
+## Data Store in Localstorag :
+- Localstorage to keep the data persistent.
+## functionalities
+- getProducts() to get all products from Api.	
+- AddToCart() to add product to LocalStorage.
+- getProductCart() to get all products addedd in local storage .
+- getTotalCart() to get all total cart .
+- addAmount() to add amount of product after you adding to cart .
+- minsAmount() to minuse the amount.
+
+## Style & CSS 
+- Bootstrap 
+npm i --save bootstrap --latest "for last version "
+
+## Routing
+- ### Use Angular routing in templates
+	- `routerLink` used in product-details component to go back to all-products component 
+	, in cart components to back to product list ,and in confirmation component.
+# Use data from external API 
+* product servise use HTTPClienr to send requests and retrieve their responses 
+- The data :
+https://fakestoreapi.com/products/
+
 
 ## Development server
 
@@ -22,6 +67,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

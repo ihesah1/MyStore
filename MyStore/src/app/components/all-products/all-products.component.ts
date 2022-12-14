@@ -12,7 +12,6 @@ export class AllProductsComponent implements OnInit {
   data:any={}
   products:Product[]=[]
   cartProduct:cart[]= []
-  myStorage = window.localStorage;
   constructor(private service:ProductsService){}
 
   ngOnInit(): void {

@@ -1,6 +1,5 @@
 import { Component ,Input,Output,OnInit, EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
-
 import { Product } from 'src/app/models/product';
 import { cart } from 'src/app/models/cart';
 @Component({

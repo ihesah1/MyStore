@@ -1,6 +1,17 @@
-.navbar{
+/* .navbar{
     text-align: center;
     padding: auto;
     margin:auto;
+    
+} */
+
+.navbar {
     display: inline;
+}
+.nav-item{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+a { 
+    color: #ffffff;
 }

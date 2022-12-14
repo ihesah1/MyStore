@@ -10,6 +10,7 @@ export class Userdata {
     address: string;
     creditCard: string;
     total: number;
+    
    
 
     constructor() {
