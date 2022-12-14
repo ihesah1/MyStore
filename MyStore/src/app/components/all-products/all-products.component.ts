@@ -2,7 +2,7 @@ import { Component , OnInit} from '@angular/core';
 import { cart } from 'src/app/models/cart';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
-import swal from 'sweetalert';
+
 @Component({
   selector: 'app-all-products',
   templateUrl: './all-products.component.html',
@@ -35,20 +35,14 @@ export class AllProductsComponent implements OnInit {
       }else{
         this.cartProduct.push(event)
         localStorage.setItem("cart",JSON.stringify(this.cartProduct))
-        swal({
-          title: "Good job!",
-          text: "You Add the Product Succesfully",
-          icon: "success",
-        });
+        alert( "You Add the Product Succesfully")
       }
     }else{
       this.cartProduct.push(event)
       localStorage.setItem("cart",JSON.stringify(this.cartProduct)) 
-      swal({
-        title: "Good job!",
-        text: "You Add the Product Succesfully",
-        icon: "success",
-      })}
+        alert( "You Add the Product Succesfully")
+     
+     }
     
   
     
