@@ -21,6 +21,7 @@ myStorage = window.localStorage
   this.myStorage.clear();
 }
 
-}
+ }
+
 ////////////// ToDo :
 ////////////////Clear cart + README file

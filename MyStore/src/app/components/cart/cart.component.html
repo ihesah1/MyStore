@@ -20,7 +20,7 @@
                    
                   </div>
   
-                  <div class="card mb-3" *ngFor="let cartItem of cartProduct ; let index = index ">
+                  <div class="card mb-3" *ngFor="let cartItem of cartProduct ;   ">
                     <div class="card-body " >
                       <div class="d-flex justify-content-between" >
                         <div class="d-flex flex-row align-items-center" >
@@ -37,17 +37,32 @@
                           <div style="width: 50px;">
                             <h5 class="fw-normal mb-0"></h5>
                           </div>
-                          <div style="width: 90px;">
-                               <div class="quantity" >
-                                <div class="m-10">Quantity : {{cartItem.quantity}}</div>
-                                <div class="btn btn-dark m-1 " (click)="addAmount(index)"> + </div>
-                                <div class="btn btn-dark " (click)="minsAmount(index)"> - </div>
-
-                            </div><h5 class="mb-0 m-9">${{cartItem.item.price * cartItem.quantity}}</h5>
-                         
+                          <div style="width: 90px;" >
+                            
+                            <div class="quantity " >
+<div>
+                              <label>Quantity:</label>
+                              <input
+                              class="form-control"
+                                type="number"
+                                name="{{ cartItem.item.id }} "
+                                value="{{ cartItem.quantity }}"
+                                min="0"
+                                [(ngModel)]="cartItem.quantity"
+                                (ngModelChange)="updateCart(cartItem)"
+                              />
+                            </div>
+                                <!-- <div class="m-10" >Quantity : {{cartItem.quantity}}
+                                <div class="btn btn-dark m-1   " (click)="addAmount(index)"> + </div>
+                                <div class="btn btn-dark"  (click)="minsAmount(index)" > - </div> -->
+                           <h5 class="mb-0 m-9">${{cartItem.item.price * cartItem.quantity}}</h5>
+                           </div> 
+                            <button class="btn btn-danger" (click)="deleteProduct(index)">Delete</button>
+                         </div>
                           </div>
                           <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
                         </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -81,7 +96,7 @@
                         </form> 
                         </div>
                       </div>
-                </div></div></div></div></div></div></div></section>
+                </div></div></div></div></div></div></section>
                       
                      
                   

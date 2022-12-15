@@ -14,14 +14,13 @@ import { OrderService } from 'src/app/services/order.service';
 export class CartComponent implements OnInit{
     
    cartProduct : cart[]=[]
-
+    index =0
    total=0
-
   
  
    order: Userdata = new Userdata;
     
-  constructor(private router: Router,private orderService: OrderService){}
+  constructor(private router: Router,private orderService: OrderService,private cartService:CartService){}
   ngOnInit(): void {
     this.getProductsCart()
   }
@@ -52,13 +51,35 @@ export class CartComponent implements OnInit{
      localStorage.setItem("cart",JSON.stringify(this.cartProduct))
 
   }
+  deleteProduct(index:number){
+     this.cartProduct.splice(index, 1)
+     alert("The Product Deleted successfully.")
+     localStorage.setItem("cart",JSON.stringify(this.cartProduct))
+     this.getTotalCart()
+  }
   
-
-
   onSubmit(firstname: string, address: string,creditCard:string): void {
 	  this.order = {firstname: firstname, address: address,creditCard:creditCard,total:this.total };
 	  this.orderService.addOrder(this.order);
 	  this.router.navigate(['/confirmation']);
   }
 
+  // onChange(cartItem:cart){
+  //   if (cartItem.quantity <= 0 ){
+      
+  //     alert("The Product is removed from cart .");
+  //     this.cartProduct = this.cartService.removeFromCart(cartItem)
+  //     this.getTotalCart()
+  //   }else{
+  //     this.getTotalCart();
+  //   }
+  // }
+
+  updateCart(cartItem:cart){
+    this.getTotalCart()
+    if (cartItem.quantity == 0 ){
+      
+      this.deleteProduct(this.index)
+    }
+  }
 }
