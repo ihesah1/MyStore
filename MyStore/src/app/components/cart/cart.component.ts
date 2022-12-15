@@ -39,18 +39,19 @@ export class CartComponent implements OnInit{
   }
 
 
-  addAmount(index:number){
-    this.cartProduct[index].quantity++;
-    this.getTotalCart()
-    localStorage.setItem("cart",JSON.stringify(this.cartProduct))
+  // addAmount(index:number){
+  //   this.cartProduct[index].quantity++;
+  //   this.getTotalCart()
+  //   localStorage.setItem("cart",JSON.stringify(this.cartProduct))
 
-  }
-  minsAmount(index:number){
-     this.cartProduct[index].quantity--;
-     this.getTotalCart()
-     localStorage.setItem("cart",JSON.stringify(this.cartProduct))
+  // }
+  // minsAmount(index:number){
+  //    this.cartProduct[index].quantity--;
+  //    this.getTotalCart()
+  //    localStorage.setItem("cart",JSON.stringify(this.cartProduct))
 
-  }
+  // }
+
   deleteProduct(index:number){
      this.cartProduct.splice(index, 1)
      alert("The Product Deleted successfully.")
@@ -64,16 +65,7 @@ export class CartComponent implements OnInit{
 	  this.router.navigate(['/confirmation']);
   }
 
-  // onChange(cartItem:cart){
-  //   if (cartItem.quantity <= 0 ){
-      
-  //     alert("The Product is removed from cart .");
-  //     this.cartProduct = this.cartService.removeFromCart(cartItem)
-  //     this.getTotalCart()
-  //   }else{
-  //     this.getTotalCart();
-  //   }
-  // }
+ 
 
   updateCart(cartItem:cart){
     this.getTotalCart()
